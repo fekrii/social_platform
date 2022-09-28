@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+
+  app:
+    build: .
+    volumes:
+      - .:/app
+    image: ec2-35-164-43-8.us-west-2.compute.amazonaws.com/fekri-test:app
+    expose:
+      - 8000:8000
+    command: gunicorn core.wsgi:application --bind 0.0.0.0:8000
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - elasticsearch
+
+  db:
+    image: mysql:5.7
+    env_file:
+      - .env
+    ports:
+      - "3302:3306"
+    volumes:
+      - ./data/mysql/dbb:/var/lib/mysql
+
+  elasticsearch:
+    container_name: elastic_search
+    image: elasticsearch:7.8.1
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
