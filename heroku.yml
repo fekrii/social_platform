@@ -1,0 +1,7 @@
+build:
+  docker:
+    web: Dockerfile
+release:
+  image: app
+  command:
+    - django-admin migrate --noinput
