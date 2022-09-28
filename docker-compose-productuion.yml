@@ -19,14 +19,7 @@ services:
       - db
       - elasticsearch
 
-  db:
-    image: mysql:5.7
-    env_file:
-      - .env
-    ports:
-      - "3302:3306"
-    volumes:
-      - ./data/mysql/dbb:/var/lib/mysql
+
 
   elasticsearch:
     container_name: elastic_search
