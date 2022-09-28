@@ -5,6 +5,7 @@ services:
     build: .
     volumes:
       - .:/app
+      - .data/web:/vol/web
     image: ec2-35-164-43-8.us-west-2.compute.amazonaws.com/fekri-test:app
     expose:
       - 8000
