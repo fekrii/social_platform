@@ -6,8 +6,6 @@ services:
     volumes:
       - .:/app
     image: ec2-35-164-43-8.us-west-2.compute.amazonaws.com/fekri-test:app
-    restart:
-      - always
     expose:
       - 8000
     ports:
