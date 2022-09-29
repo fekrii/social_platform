@@ -12,14 +12,15 @@ EXPOSE 8000
 RUN pip install --upgrade pip && \
     pip install -r /requirements.txt && \
     adduser --disabled-password --no-create-home app && \
-    mkdir -p /vol/web/static && \
-    mkdir -p /vol/web/media && \
-    chown -R app:app /vol && \
-    chmod -R 755 /vol && \
+    mkdir -p /home/app/web && \
+    mkdir -p /home/app/web/staticfiles && \
+    mkdir -p /home/app/web/mediafiles && \
+    chown -R app:app /home/app/web && \
+    chmod -R 755 /home/app/web && \
     chmod -R +x /scripts
 
 ENV PATH="/scripts:/py/bin:$PATH"
 
 USER app
 
-CMD ["run.sh"]
+# CMD ["run.sh"]

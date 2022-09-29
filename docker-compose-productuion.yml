@@ -2,11 +2,13 @@ version: "3.9"
 services:
 
   app:
-    build: .
+    build:
+      context: .
     restart: always
     volumes:
       - .:/app
-      - static-data:/vol/web
+      - static_volume:/home/app/web/staticfiles
+      - media_volume:/home/app/web/mediafiles
     image: ec2-35-164-43-8.us-west-2.compute.amazonaws.com/fekri-test:app
     expose:
       - 8000
@@ -18,16 +20,23 @@ services:
     depends_on:
       - elasticsearch
 
-  proxy:
-    build:
-      context: ./proxy
+  nginx-proxy:
+    container_name: nginx-proxy
+    build: nginx
+    image: ec2-35-164-43-8.us-west-2.compute.amazonaws.com/fekri-test:nginx-proxy
     restart: always
+    ports:
+      - 443:443
+      - 80:80
+    volumes:
+      - static_volume:/home/app/web/staticfiles
+      - media_volume:/home/app/web/mediafiles
+      - certs:/etc/nginx/certs
+      - html:/usr/share/nginx/html
+      - vhost:/etc/nginx/vhost.d
+      - /var/run/docker.sock:/tmp/docker.sock:ro
     depends_on:
       - app
-    ports:
-      - 80:8000
-    volumes:
-      - static-data:/vol/static
 
 
   elasticsearch:
@@ -39,4 +48,9 @@ services:
       - "9200:9200"
 
 volumes:
-  static-data:
+  static_volume:
+  media_volume:
+  certs:
+  html:
+  vhost:
+  acme:
