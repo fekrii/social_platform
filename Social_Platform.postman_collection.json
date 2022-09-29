@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "37fb979a-d4f1-4e48-8ded-ba74535376ed",
+		"name": "Preventai",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18673655"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@mail.com\",\r\n    \"password\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/auth/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_data\": {\r\n        \"email\": \"user@mail.com\",\r\n        \"phone\": \"01005170441\",\r\n        \"password\": \"test\"\r\n    },\r\n    \"profile\": {\r\n        \"firstName\": \"user one\",\r\n        \"lastName\": \"last one\",\r\n        \"gender\": \"Male\",\r\n        \"birthDate\": \"2019-11-11\",\r\n        \"address\": \"\",\r\n        \"jobTitle\": \"\",\r\n        \"nationality\":\"\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/auth/register/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile/my",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/auth/profile/my",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"profile",
+						"my"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile/id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY0MzExNzk5LCJpYXQiOjE2NjQzMDQ1OTksImp0aSI6ImViYjYyMDI2ODcxYTRlNjFiMDM3ZTU5MWZjMjExZjJhIiwidXNlcl9pZCI6M30.5B8SRbfrBPmvwsK6tI5-pz0glcFmP47jo0edWziFgTM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/auth/profile/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"auth",
+						"profile",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "posts/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/posts/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "posts/my",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY0MzExNzk5LCJpYXQiOjE2NjQzMDQ1OTksImp0aSI6ImViYjYyMDI2ODcxYTRlNjFiMDM3ZTU5MWZjMjExZjJhIiwidXNlcl9pZCI6M30.5B8SRbfrBPmvwsK6tI5-pz0glcFmP47jo0edWziFgTM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/posts/my",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						"my"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "posts/",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY0Mzg4NTM5LCJpYXQiOjE2NjQzODEzMzksImp0aSI6ImY1YWZiNDZkMWJjNzRjZWVhM2NmNzU2MzZmMzQ0YWVmIiwidXNlcl9pZCI6Mn0.kBsksMbtBE85tcUE3wmgBbQMULI3A1ldMliuv_lEhcE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"first post\",\r\n    \"post_type\": \"news\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/posts/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/posts/search/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						"search",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "details/1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY0MzExOTg2LCJpYXQiOjE2NjQzMDQ3ODYsImp0aSI6ImMwODNmMmZiNDI3MDRiMWVhZTE0NDAxMzk4YTYyM2EyIiwidXNlcl9pZCI6Mn0.7CI8c0YajlLYtMpnKKz2KLtP1sa-uzHRlI2XwSmqT8w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/posts/details/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						"details",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
