@@ -38,6 +38,7 @@ ALLOWED_HOSTS.extend(
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.admindocs',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'django_elasticsearch_dsl',
     'drf_yasg',
+    
 
     ## Internal
     '_auth',

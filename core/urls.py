@@ -17,6 +17,7 @@ schema_view = swagger_get_schema_view(
 )
 
 urlpatterns = [
+    path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
 
 
