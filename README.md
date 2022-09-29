@@ -29,7 +29,8 @@
 
 This project is a simple Social Platform app, it uses elastic-search for search feature , docker for deployement , JWT for token authentication, swagger for api documentaion and deployed on AWS Ec2 instance with gunicorn and nginx for static files handling <br>
 
-you can run it locally, or with docker-compose or you can check it online on AWS from this <a href="http://ec2-35-164-43-8.us-west2.compute.amazonaws.com:8000/admin/">Link</a>
+you can run it locally, or with docker-compose or you can check it online on AWS from this <a href="http://ec2-35-164-43-8.us-west-2.compute.amazonaws.com:8000/admin">Link</a>
+
 
 you can check the api swagger documentaion from : <i>swagger\/schema/<i/> either locally or with liveserver <br>
 also you can check basic model and views documentaion from : <i>admin\/doc/<i/>
