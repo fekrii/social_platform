@@ -4,7 +4,7 @@ ENV PYTHONUNBUFFERED 1
 
 COPY ./requirements.txt /requirements.txt
 COPY . /app
-COPY ./scripts /scripts
+
 
 WORKDIR /app
 EXPOSE 8000
@@ -16,10 +16,10 @@ RUN pip install --upgrade pip && \
     mkdir -p /home/app/web/staticfiles && \
     mkdir -p /home/app/web/mediafiles && \
     chown -R app:app /home/app/web && \
-    chmod -R 755 /home/app/web && \
-    chmod -R +x /scripts
+    chmod -R 755 /home/app/web
 
-ENV PATH="/scripts:/py/bin:$PATH"
+
+ENV PATH="/py/bin:$PATH"
 
 USER app
 
